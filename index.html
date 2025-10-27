@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filippo Tessaro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background-color: #0f172a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #374151;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f9fafb;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #9ca3af;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #f9fafb;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f9fafb;
+            margin-bottom: 1rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-meta span {
+            color: #9ca3af;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f9fafb;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #374151;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f9fafb;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        .experience-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Technologies Section */
+        .tech-category {
+            margin-bottom: 2rem;
+        }
+
+        .tech-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f9fafb;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-list {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* Awards Section */
+        .award-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #1e293b;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .award-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f9fafb;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-description {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-date {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        /* Publications Section */
+        .publication-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #374151;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .publication-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f9fafb;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: #9ca3af;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors {
+            color: #d1d5db;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background-color: #1e293b;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f9fafb;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item strong {
+            color: #d1d5db;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #374151;
+            padding: 2rem 0;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Link styles */
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Filippo Tessaro</div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#technologies">Technologies</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Filippo Tessaro</h1>
+                <div class="hero-meta">
+                    <span>📍 Italy</span>
+                    <span>🧑🏻‍💻 Senior Machine Learning Engineer</span>
+                    <span>🧠 NLP & LLMs</span>
+                    <span>🔵 WISEcode</span>
+                </div>
+                <div class="hero-description">
+                    <p>Hello, my name is Filippo. I am a Senior Machine Learning Engineer at WISEcode, where I'm building cutting-edge AI solutions for food discovery and nutritional analysis.</p>
+                    
+                    <p>My mission is to help developers and businesses leverage AI responsibly and effectively, specializing in everything from multimodal search engines to personalized AI assistants using LLMs, RAG systems, and advanced ML techniques.</p>
+                    
+                    <p>Before joining WISEcode in 2023, I was a Research Scientist at VUI Inc, where I led experiments advancing Large Language Models in e-commerce, including fine-tuning LLama v2 using Peft and LoRa. I was instrumental in improving e-commerce search performance by 30% through multi-modal CLIP transformers.</p>
+                    
+                    <p>My passion for AI and machine learning began over 5 years ago. I've designed and implemented multiple AI architectures across various industries, from real-time speech translation to computer vision systems. I actively share my knowledge through research publications and have been recognized with awards including the 2024 Opus Research Conversational AI Award.</p>
+                </div>
+            </section>
+
+            <div class="main-content">
+                <section id="about" class="section">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item"><strong>Email:</strong> filippotessaro96@gmail.com</div>
+                        <div class="contact-item"><strong>Phone:</strong> +39 342 807 2523</div>
+                        <div class="contact-item"><strong>LinkedIn:</strong> filippo-tessaro</div>
+                        <div class="contact-item"><strong>Education:</strong> Master in Computer Science, University of Trento (105/110)</div>
+                    </div>
+                </section>
+
+                <section id="experience" class="section">
+                    <h2>Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Senior Machine Learning Engineer</div>
+                            <div class="experience-company">WISEcode, Chicago, US</div>
+                            <div class="experience-date">October 2023 – Present</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Developed a multimodal search engine for food products using hybrid search with CLIP, Elasticsearch, and NLU, deployed for universities and US-based nutritionists</li>
+                                <li>Implemented ensemble PyTorch/ML models achieving 90%+ accuracy in food category classification</li>
+                                <li>Designed microservices and pipelines using AWS Cloud Infrastructure (EC2, Batch, S3) for enhanced scalability</li>
+                                <li>Created WISEchef: A personalized nutritional assistant using multi-agent LLM structure with custom RAG system</li>
+                                <li>Implemented regression testing suite to assess and monitor production issues for Multi-Agent LLM systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Freelance Machine Learning Engineer</div>
+                            <div class="experience-company">Surfe, Remote</div>
+                            <div class="experience-date">2025 (3 months)</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Developed AI agents using LangChain and Ollama for intelligent automation in signals computation</li>
+                                <li>Created modules for company lookalike recommender system to improve business matching capabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Freelance AI Developer</div>
+                            <div class="experience-company">Catalyst - Medical App Project, Remote</div>
+                            <div class="experience-date">2025 (1 month)</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Developed human-in-the-loop prompt feedback generator for medical application</li>
+                                <li>Implemented feedback mechanisms to improve AI-generated medical content quality</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Research Scientist II</div>
+                            <div class="experience-company">VUI Inc, Boston, US</div>
+                            <div class="experience-date">May 2022 – October 2023</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Implemented PyTorch-based ML models with F1-scores exceeding 90% in classification tasks</li>
+                                <li>Specialized in fine-tuning Multi-modal CLIP Transformers for e-commerce search (30% improvement in precision/recall)</li>
+                                <li>Led experiments advancing LLMs in e-commerce, including LLama v2 fine-tuning with Peft and LoRa</li>
+                                <li>Enhanced chatbot system with novel NLU capabilities and OpenAI API integration</li>
+                                <li>Researched and applied diverse text data augmentation methodologies for user-query classification</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Machine Learning Engineer</div>
+                            <div class="experience-company">Alkemy, Milan, Italy</div>
+                            <div class="experience-date">January 2022 – May 2022</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Developed and deployed advanced vision-tracking system on IoT platform (Nvidia Jetson Nano)</li>
+                                <li>Implemented real-time gender and age detection for dynamic marketing integration</li>
+                                <li>Partnered with Samsung Italy for innovative marketing solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Machine Learning Engineer</div>
+                            <div class="experience-company">PerVoice, Trento, Italy</div>
+                            <div class="experience-date">May 2019 – January 2022</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Managed textual data processing for Language Models in ASR systems across 15+ languages</li>
+                                <li>Spearheaded automated text cleaning framework for ASR language models</li>
+                                <li>Developed Real-Time Machine Translation system exploring various speech-to-translation strategies</li>
+                                <li>Conducted ASR end-to-end model training with extensive architectural refinements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="technologies" class="section">
+                    <h2>Technologies</h2>
+                    <p>Below is a list of technologies (mostly open source frameworks, libraries and languages) I regularly use and enjoy working with. If you want to see more about what I do, check out my <a href="https://github.com/filippotessaro96" target="_blank">GitHub</a>.</p>
+                    
+                    <div class="tech-category">
+                        <h3>🤖 Machine Learning</h3>
+                        <div class="tech-list">PyTorch, TensorFlow, HuggingFace, Transformers, Torch Lightning, Scikit-Learn, LangChain, CLIP, LoRa, Peft, NLTK, Spacy, Sentence Transformers.</div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>☁️ Cloud & Infrastructure</h3>
+                        <div class="tech-list">AWS (EC2, S3, Batch), Docker, Microservices, Kubernetes, CI/CD, GitHub Actions, Terraform.</div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>🔍 Data & Search</h3>
+                        <div class="tech-list">FAISS, OpenSearch, Elasticsearch, RAG Systems, Hybrid Search, Vector Databases.</div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>🏗️ Development</h3>
+                        <div class="tech-list">Python, Git, GitHub, Streamlit, FastAPI, API Development, React, JavaScript.</div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>🎯 Specialized</h3>
+                        <div class="tech-list">Computer Vision, ASR, Speech Translation, E-commerce AI, Multi-modal Systems, IoT (Nvidia Jetson Nano).</div>
+                    </div>
+                </section>
+
+                <section id="awards" class="section">
+                    <h2>Awards & Recognition</h2>
+                    
+                    <div class="award-item">
+                        <div class="award-title">Opus Research 2024 Conversational AI Awards</div>
+                        <div class="award-description">Special commendation for WISEchef - A personalized nutritional assistant that allows customers to easily find foods compatible with their nutrition preferences and health conditions.</div>
+                        <div class="award-date">May 2024</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-title">Vertical Innovation Hackathon Winner</div>
+                        <div class="award-description">First place winner in the Bozen 2018 edition with Keynote 2.0 Group for innovative technology solutions.</div>
+                        <div class="award-date">2018</div>
+                    </div>
+                </section>
+
+                <section id="publications" class="section">
+                    <h2>Publications</h2>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">Extreme Multi-label Query Classification for E-commerce</div>
+                        <div class="publication-venue">The 2024 SIGIR Workshop On eCommerce</div>
+                        <div class="publication-date">June 2024</div>
+                        <a href="https://sigirecom.github.io/eCom24Papers/paper_11.pdf" class="publication-link" target="_blank">View Paper</a>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-title">Scalable Query Understanding for Ecommerce: An Ensemble Architecture with Graph-based Optimization</div>
+                        <div class="publication-venue">CLIC Pisa</div>
+                        <div class="publication-authors">Giuseppe Di Fabbrizio, Evgeny A. Stepanov, Ludovico Frizziero and Filippo Tessaro</div>
+                        <div class="publication-date">December 2024</div>
+                        <a href="https://clic2024.ilc.cnr.it/accepted-papers/" class="publication-link" target="_blank">View Paper</a>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-title">Weight Estimation from an RGB-D Camera in Top-View Configuration</div>
+                        <div class="publication-venue">2020 25th International Conference on Pattern Recognition (ICPR)</div>
+                        <div class="publication-authors">M. Mameli, M. Paolanti, N. Conci, F. Tessaro, E. Frontoni and P. Zingaretti</div>
+                        <div class="publication-date">2020</div>
+                        <a href="https://ailb-web.ing.unimore.it/icpr/author/930" class="publication-link" target="_blank">View Paper</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Filippo Tessaro. Senior Machine Learning Engineer specializing in NLP, LLMs, and AI solutions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active navigation item
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.color = '#9ca3af';
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.style.color = '#f9fafb';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
